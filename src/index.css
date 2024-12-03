@@ -78,7 +78,7 @@ input::-webkit-inner-spin-button {
   
 
   body{
-    @apply  text-body !font-["Nunito"] overflow-x-hidden;
+    @apply  text-body !font-["Nunito"] overflow-x-hidden leading-relaxed;
   
   }
   h1,
@@ -126,6 +126,12 @@ input::-webkit-inner-spin-button {
  
 }
 
+/* Handle on hover */
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: hsl(42, 66%, 44%);
+  cursor: grab;
+}
+
 @layer utilities{
   .center-all {
     @apply flex justify-center items-center;
@@ -137,7 +143,7 @@ input::-webkit-inner-spin-button {
 
 
   .container{
-    @apply max-w-[1800px] mx-auto px-4;
+    @apply max-w-[1200px] w-full mx-auto px-4;
 }
 
 
@@ -249,7 +255,7 @@ transition-all z-30;
 .input-wrap input, 
 .input-wrap textarea, 
 .input-wrap select {
-  @apply px-2 py-1 w-full outline-none border border-line bg-primary text-body rounded-md focus:border-info;
+  @apply px-2 py-1 w-full outline-none border border-line bg-primary text-body rounded-md focus:border-info min-h-[33px];
 }
 
 
@@ -284,6 +290,13 @@ transition-all z-30;
 .input-photo-wrap span.error-show{
   @apply !-top-4;
 }
+.wrapper-instruction h5 {
+
+  @apply mb-4 py-1 border-b border-gray-600 border-opacity-15 text-lg ;
+}
+.wrapper-instruction p {
+  @apply mb-5 text-sm;
+}
 
 
 .input-wrap span.error-show{
@@ -295,4 +308,32 @@ transition-all z-30;
 .input-wrap:has(.error-show) input{
   @apply text-alert animate-shake;
 } */
+}
+
+.grid-name-0, 
+.grid-name-top-0{grid-area: a}
+.grid-name-1, 
+.grid-name-top-1{grid-area: b}
+.grid-name-2, 
+.grid-name-top-2{grid-area: c}
+.grid-name-3,
+.grid-name-top-3{grid-area: d}
+.grid-name-4,
+.grid-name-top-4{grid-area: e}
+.grid-name-5, 
+.grid-name-top-5{grid-area: f}
+
+.grid-container{
+  grid-template-areas:
+  'a a b'
+  'a a c'
+  'd e f';
+}
+.grid-container-top {
+  min-height:1200px;
+  grid-template-areas:
+  'a c f'
+  'a d f'
+  'b d e';
+
 }
