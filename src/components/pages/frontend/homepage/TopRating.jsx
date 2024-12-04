@@ -9,12 +9,14 @@ const TopRating = () => {
     <div className="container">
         <h2 className='text-white'>Top Rated Recipes</h2>
 
-        <div className="grid grid-container-top gap-3">
+        <div className="grid grid-container-top gap-3  md:min-h-[1200px] min-h-[500px] ">
         {Array.from(Array(6).keys()).map((key) => ( 
-             <div className={` object-cover grid-item relative h-full w-full bg-black group grid-name-top-${key} overflow-hidden`} key={key}>
+             <div className={` object-cover grid-item relative h-full w-full
+              bg-black group grid-name-top-${key} overflow-hidden`} key={key}>
                 <img src={`${imgPath}/adobo2.jpg`} alt="" className='group-hover:opacity-70
                  transition-all w-full h-full object-cover group-hover:scale-[1.5] group-hover:rotate-[10deg]' />
-                <div className='absolute -bottom-24 left-5 text-white opacity-0 group-hover:bottom-5 group-hover:opacity-100 transition-all'>
+                <div className='absolute -bottom-24 left-5
+                 text-white opacity-0 group-hover:bottom-5 group-hover:opacity-100 transition-all'>
                      
                          <ul className='text-sm flex gap-4 items-center'>
                             <li>30mins</li>

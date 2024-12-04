@@ -330,7 +330,7 @@ transition-all z-30;
   'd e f';
 }
 .grid-container-top {
-  min-height:1200px;
+ 
   grid-template-areas:
   'a c f'
   'a d f'
