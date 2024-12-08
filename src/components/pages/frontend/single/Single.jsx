@@ -60,7 +60,7 @@ console.log(getSingleRecipe())
        getSingleRecipe() !== undefined && 
        getSingleRecipe()[0].recipe_description}</p>
           
-          <div className=" text-left grid grid-cols-[1.5fr,_3fr] gap-10 max-w-[900px] mx-auto mt-10">
+          <div className=" text-left md:grid md:grid-cols-[1.5fr,_3fr] gap-10 max-w-[900px] mx-auto mt-10">
             <div>
                 <h3>Ingredients</h3>
                 {getSingleRecipe() !== undefined &&
