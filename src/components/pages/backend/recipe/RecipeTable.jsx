@@ -9,6 +9,7 @@ import Pills from '../partials/Pills'
 import useQueryData from '@/components/custom-hook/useQueryData'
 import SpinnerTable from '../partials/spinners/SpinnerTable'
 import IconNoData from '../partials/IconNoData'
+import Status from '@/components/partials/Status'
 
 
 const RecipeTable = ({setItemEdit}) => {
@@ -67,7 +68,7 @@ const RecipeTable = ({setItemEdit}) => {
                             </tr>
                           </thead>
                           <tbody>
-                          {((isLoading && !isFetching) || result?.data.length === 0) && (
+                          {/* {((isLoading && !isFetching) || result?.data.length === 0) && (
                                 <tr>
                                   <td colSpan="100%">
                                     {isLoading ? (
@@ -85,41 +86,41 @@ const RecipeTable = ({setItemEdit}) => {
                                     <IconServerError />
                                   </td>
                                 </tr>
-                              )}
-                              {result?.data.map((item, key) => {
-                            
-                            return (
-                            <tr key={key}>
-                            <td>{counter++}</td>
-                            <td><Pills isActive={item.recipe_is_active}/></td>
-                            <td>{item.recipe_title}</td>
-                            <td className='capitalize'>{item.recipe_category}</td>
-                            <td className='capitalize'>{item.recipe_level}</td>
-                            <td>
-                              <ul className="table-action " >
-                                {item.recipe_is_active ? (<>
-                                <li>
-                                  <button className='tooltip' data-tooltip="Edit" onClick={() => handleEdit(item)}><FilePenLine /></button>
-                                </li>
-                                <li><button className='tooltip' data-tooltip="Archive" onClick={() => handleArchive(item)}><Archive/></button></li>
-                                </>) : (<>
-                                  <li>
-                                  <button className='tooltip' data-tooltip="Restore" onClick={() => handleRestore(item)}><ArchiveRestore /></button>
-                                  </li>
-                                <li>
-                                  <button className='tooltip' data-tooltip="Delete" onClick={() => handleDelete(item)}><Trash2 /></button>
-                                  </li>
-                                </>)}
-                              </ul>
-                            </td>
-                          </tr>
-                              );
-                            })}
-                              
-                  
-                            
-                              
-
+                              )} */}
+                             {result?.count > 0 &&
+                                result.data.map((item, key) => (
+                                  <tr key={key}>
+                                  <td>{counter++}</td>
+                                  <td>
+                                    {item.recipe_is_active === 1 ? (
+                                      <Status text="Active"/>
+                                    ) : (
+                                      <Status text="Inactive"/>
+                                    )
+                                    }
+                                  </td>
+                                  <td>{item.recipe_title}</td>
+                                  <td className='capitalize'>{item.category_title}</td>
+                                  <td className='capitalize'>{item.level_title}</td>
+                                  <td>
+                                    <ul className="table-action " >
+                                      {item.recipe_is_active === 1 ? (<>
+                                      <li>
+                                        <button className='tooltip' data-tooltip="Edit" onClick={() => handleEdit(item)}><FilePenLine /></button>
+                                      </li>
+                                      <li><button className='tooltip' data-tooltip="Archive" onClick={() => handleArchive(item)}><Archive/></button></li>
+                                      </>) : (<>
+                                        <li>
+                                        <button className='tooltip' data-tooltip="Restore" onClick={() => handleRestore(item)}><ArchiveRestore /></button>
+                                        </li>
+                                      <li>
+                                        <button className='tooltip' data-tooltip="Delete" onClick={() => handleDelete(item)}><Trash2 /></button>
+                                        </li>
+                                      </>)}
+                                    </ul>
+                                  </td>
+                              </tr>
+                           ))}
                           </tbody>
                         </table>
                         <LoadMore/>

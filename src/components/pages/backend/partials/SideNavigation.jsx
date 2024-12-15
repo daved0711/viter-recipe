@@ -17,6 +17,16 @@ const SideNavigation = ({menu}) => {
         slug : '/admin/recipe',
         icon : <Utensils size={16} />,
     },
+    {
+        title : 'Category',
+        slug : '/admin/category',
+        icon : <Utensils size={16} />,
+    },
+    {
+        title : 'Level',
+        slug : '/admin/level',
+        icon : <Utensils size={16} />,
+    },
 ]
   return (
     <>
